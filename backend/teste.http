@@ -1,0 +1,85 @@
+### cadastrar cliente
+POST http://localhost:3000/cliente
+Content-Type: application/json
+
+{
+    "nome": "nome",
+    "email": "email@email.com",
+    "senha": "senha",
+    "cpf": "12345678910",
+    "telefone": "telefone"
+}
+
+###Login
+
+# @name valToken
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "email@email.com",
+    "senha": "senha"
+}
+###
+
+### consultar cliente id
+GET http://localhost:3000/cliente/1
+Authorization: {{valToken.response.body.token}}
+Content-Type: application/json
+
+### listar clientes
+GET http://localhost:3000/clientes
+Authorization: {{valToken.response.body.token}}
+Content-Type: application/json
+
+### atualizar cliente
+PATCH http://localhost:3000/cliente/1
+Authorization: {{valToken.response.body.token}}
+Content-Type: application/json
+
+{
+    "telefone": "novo telefone"
+}
+
+### deletar cliente
+DELETE http://localhost:3000/cliente/1
+Authorization: {{valToken.response.body.token}}
+Content-Type: application/json
+
+### cadastrar drone
+POST http://localhost:3000/drone
+Authorization: {{valToken.response.body.token}}
+Content-Type: application/json
+
+{
+    "modelo": "modelo",
+    "marca": "marca",
+    "numeroSerie": "placa",
+    "tipo": "rastreador",
+    "idCliente": "3"
+}
+
+### listar drones
+GET http://localhost:3000/drones
+Authorization: {{valToken.response.body.token}}
+Content-Type: application/json
+
+
+###cadastrar agendamentos
+
+POST http://localhost:3000/agendamento
+Authorization: {{valToken.response.body.token}}
+Content-Type: application/json
+
+{
+    "data": "09-19-2008",
+    "horario": "19:01",
+    "tipo": "a",
+    "idCliente": "3",
+    "idDrone": "1"
+}
+
+### listar drones
+GET http://localhost:3000/agendamentos
+Authorization: {{valToken.response.body.token}}
+Content-Type: application/json
